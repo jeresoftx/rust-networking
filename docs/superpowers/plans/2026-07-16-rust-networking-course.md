@@ -1,40 +1,98 @@
-# Plan de trabajo: rust-networking
+# Rust Networking Course Implementation Plan
 
-Este checklist implementa el curso `rust-networking` como repositorio troncal de
-Jeresoft Academy. Se rige por RFC-0001 y por las instrucciones de `AGENTS.md`.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-## Principios de ejecución
+**Goal:** Construir todo el contenido del curso `rust-networking` como libro de ingeniería y crate Rust educativo de Jeresoft Academy.
+
+**Architecture:** Cada capítulo vive en un módulo Rust pequeño, un capítulo Markdown, ejemplos progresivos, pruebas, diagrama Mermaid, ejercicios y soluciones. Los modelos son educativos y seguros: primero explican contratos, invariantes y modos de falla; solo después se conectan con APIs reales cuando sea necesario.
+
+**Tech Stack:** Rust 2021, biblioteca estándar, Markdown compatible con mdBook, Mermaid, tests de integración, doctests y benchmarks manuales con `std::time::Instant`.
+
+---
+
+## Reglas De Ejecución
 
 - [x] Crear repositorio remoto y clonar en `repos/rust-networking`.
 - [x] Configurar About de GitHub con descripción clara en español.
-- [x] Crear identidad inicial: README, ROADMAP, AGENTS y licencias.
+- [x] Crear identidad inicial: `README.md`, `ROADMAP.md`, `AGENTS.md` y licencias.
 - [x] Crear crate Rust educativo y estructura base.
-- [ ] Usar TDD para toda funcionalidad nueva.
+- [ ] Usar TDD para toda funcionalidad nueva: test rojo, implementación mínima, test verde, refactor.
 - [ ] Hacer commits pequeños y frecuentes con conventional commits.
+- [ ] No agregar dependencias externas sin justificarlo en el capítulo y en el commit.
+- [ ] No usar `unsafe` salvo que el capítulo lo requiera y exista comentario `// SAFETY:` más explicación en docs.
+- [ ] Mantener español es-MX con acentos, ñ y terminología clara.
 - [ ] Verificar antes de cada commit cuando aplique:
   - `cargo fmt --check`
   - `cargo clippy --all-targets --all-features -- -D warnings`
   - `cargo test --all-targets`
   - `cargo test --doc`
+  - `cargo bench --bench <chapter>_bench` cuando el capítulo agregue benchmark
+  - `git diff --check`
 
-## Task 1: Fundación del repositorio
+## Arquitectura Del Repositorio
+
+- [x] `src/lib.rs`: exporta módulos del curso.
+- [x] `src/layers.rs`: modelo de capas, IP y enrutamiento.
+- [x] `src/tcp.rs`: modelo educativo de TCP.
+- [x] `src/udp.rs`: modelo educativo de UDP.
+- [x] `src/dns.rs`: modelo educativo de DNS.
+- [x] `src/tls.rs`: modelo educativo de TLS.
+- [x] `src/http.rs`: modelo educativo de HTTP.
+- [x] `src/https.rs`: composición HTTP sobre TLS.
+- [x] `src/smtp.rs`: modelo educativo de SMTP.
+- [x] `src/websocket.rs`: modelo educativo de WebSocket.
+- [x] `src/grpc.rs`: modelo educativo de gRPC.
+- [x] `src/quic.rs`: modelo educativo de QUIC.
+- [ ] `docs/NN-topic.md`: capítulo con anatomía completa de RFC-0001 §14.
+- [ ] `tests/<topic>_test.rs`: pruebas de integración orientadas a comportamiento.
+- [ ] `benches/<topic>_bench.rs`: benchmark manual cuando exista operación medible.
+- [ ] `diagrams/NN-topic.mmd`: diagrama Mermaid del flujo o protocolo.
+- [ ] `examples/<topic>_basic.rs`: ejemplo mínimo.
+- [ ] `examples/<topic>_intermediate.rs`: ejemplo con composición o errores.
+- [ ] `examples/<topic>_advanced.rs`: ejemplo con tradeoffs explícitos.
+- [ ] `examples/<topic>_real_case.rs`: caso realista sin depender de servicios externos.
+- [ ] `examples/soluciones/<topic>_*.rs`: soluciones de ejercicios niveles 1 a 3.
+
+## Definición De Terminado Por Capítulo
+
+- [ ] Explica el concepto antes del problema.
+- [ ] Explica el problema antes de la implementación.
+- [ ] Compara alternativas y justifica el diseño elegido.
+- [ ] Declara garantías, límites, invariantes y modos de falla.
+- [ ] Incluye sección de historia, fundamentos, casos de uso, ventajas y limitaciones.
+- [ ] Incluye análisis de complejidad cuando hay operaciones modeladas.
+- [ ] Incluye diagrama Mermaid y referencia desde el capítulo.
+- [ ] Incluye implementación con doc-comments y ejemplos compilables.
+- [ ] Incluye tests de integración y doctests.
+- [ ] Incluye benchmark o declara por qué no aplica.
+- [ ] Incluye cuatro a ocho ejercicios entre niveles 1 y 4.
+- [ ] Incluye soluciones ejecutables para niveles 1 a 3.
+- [ ] Actualiza `README.md`, `ROADMAP.md` y este checklist.
+- [ ] Corre verificaciones completas antes del commit.
+- [ ] Hace commit pequeño y empuja a `origin/main` cuando el estado está verde.
+
+## Task 1: Fundación Del Repositorio
 
 **Files:**
-- Create: `README.md`
-- Create: `ROADMAP.md`
-- Create: `AGENTS.md`
-- Create: `LICENSE.md`
-- Create: `Cargo.toml`
-- Create: `src/lib.rs`
-- Create: `docs/SUMMARY.md`
+- Created: `README.md`
+- Created: `ROADMAP.md`
+- Created: `AGENTS.md`
+- Created: `LICENSE.md`
+- Created: `Cargo.toml`
+- Created: `src/lib.rs`
+- Created: `docs/SUMMARY.md`
 
 - [x] Declarar lugar del curso en Semestre 2.
 - [x] Declarar capítulos planeados.
-- [x] Declarar límites con `rust-operating-systems`, `rust-async`,
-  `rust-crypto` y `rust-distributed-systems`.
+- [x] Declarar límites con `rust-operating-systems`, `rust-async`, `rust-crypto` y `rust-distributed-systems`.
 - [x] Crear módulos placeholder para que el crate compile desde el primer día.
+- [x] Ejecutar `cargo fmt --check`.
+- [x] Ejecutar `cargo clippy --all-targets --all-features -- -D warnings`.
+- [x] Ejecutar `cargo test --all-targets`.
+- [x] Ejecutar `cargo test --doc`.
+- [x] Commit: `chore: scaffold rust networking course`.
 
-## Task 2: Modelo de capas, IP y enrutamiento
+## Task 2: Modelo De Capas, IP Y Enrutamiento
 
 **Files:**
 - Create: `docs/01-layers-ip-routing.md`
@@ -46,91 +104,430 @@ Jeresoft Academy. Se rige por RFC-0001 y por las instrucciones de `AGENTS.md`.
 - Create: `examples/layers_intermediate.rs`
 - Create: `examples/layers_advanced.rs`
 - Create: `examples/layers_real_case.rs`
+- Create: `examples/soluciones/layers_classify_packet.rs`
+- Create: `examples/soluciones/layers_subnet_match.rs`
+- Create: `examples/soluciones/layers_route_selection.rs`
 
-- [ ] Enseñar capas, encapsulación, direcciones IP, subredes, TTL, rutas y
-  entrega de mejor esfuerzo.
-- [ ] Comparar modelo OSI, TCP/IP y la forma pragmática en que se depuran redes.
-- [ ] Incluir tests de clasificación de capas, cálculo de subred simple y rutas.
-- [ ] Incluir benchmark cuando exista una operación medible del modelo.
+- [ ] Diseñar API mínima: `NetworkLayer`, `EncapsulatedFrame`, `Ipv4Address`, `Ipv4Cidr`, `Route`, `RoutingTable`, `RouteDecision`.
+- [ ] Escribir test rojo para clasificar capas y encapsulación.
+- [ ] Implementar clasificación de capas y encapsulación mínima.
+- [ ] Escribir test rojo para pertenencia de IPv4 a CIDR.
+- [ ] Implementar `Ipv4Cidr::contains`.
+- [ ] Escribir test rojo para selección de ruta por prefijo más específico.
+- [ ] Implementar `RoutingTable::select_route`.
+- [ ] Escribir test rojo para TTL agotado.
+- [ ] Implementar decremento de TTL y error educativo.
+- [ ] Documentar capas, encapsulación, IP, subredes, TTL, rutas y entrega de mejor esfuerzo.
+- [ ] Comparar modelo OSI, TCP/IP y depuración pragmática.
+- [ ] Crear diagrama de encapsulación y selección de ruta.
+- [ ] Crear ejemplos básico, intermedio, avanzado y caso real.
+- [ ] Crear ejercicios sobre capas, CIDR, rutas y diagnóstico.
+- [ ] Crear soluciones ejecutables niveles 1 a 3.
+- [ ] Crear benchmark de selección de ruta con tablas pequeñas y medianas.
+- [ ] Actualizar estado a `benchmarked` en README y ROADMAP.
+- [ ] Verificar y hacer commit: `feat: add layers ip routing chapter`.
 
 ## Task 3: TCP
 
-- [ ] Enseñar conexión, establecimiento en tres pasos, flujo confiable, orden, ventanas,
-  retransmisión y cierre.
-- [ ] Modelar estados principales sin pretender reemplazar una pila TCP real.
-- [ ] Incluir pruebas de transición de estados y segmentos fuera de orden.
+**Files:**
+- Create: `docs/02-tcp.md`
+- Modify: `src/tcp.rs`
+- Create: `tests/tcp_test.rs`
+- Create: `benches/tcp_bench.rs`
+- Create: `diagrams/02-tcp.mmd`
+- Create: `examples/tcp_basic.rs`
+- Create: `examples/tcp_intermediate.rs`
+- Create: `examples/tcp_advanced.rs`
+- Create: `examples/tcp_real_case.rs`
+- Create: `examples/soluciones/tcp_handshake.rs`
+- Create: `examples/soluciones/tcp_ordered_stream.rs`
+- Create: `examples/soluciones/tcp_retransmission.rs`
+
+- [ ] Diseñar API mínima: `TcpState`, `TcpSegment`, `SequenceNumber`, `TcpConnection`, `TcpEvent`, `TcpError`.
+- [ ] Escribir test rojo para establecimiento en tres pasos.
+- [ ] Implementar transiciones `Closed -> SynSent -> Established`.
+- [ ] Escribir test rojo para rechazo de segmento inesperado.
+- [ ] Implementar errores de transición.
+- [ ] Escribir test rojo para ordenar segmentos por número de secuencia.
+- [ ] Implementar buffer educativo de reordenamiento.
+- [ ] Escribir test rojo para retransmisión por acuse faltante.
+- [ ] Implementar modelo mínimo de retransmisión.
+- [ ] Escribir test rojo para cierre con `FIN`.
+- [ ] Implementar cierre ordenado.
+- [ ] Documentar conexión, confiabilidad, orden, ventanas, retransmisión y cierre.
+- [ ] Comparar TCP contra UDP y QUIC.
+- [ ] Crear diagrama de estados.
+- [ ] Crear ejemplos progresivos y caso real de solicitud sobre flujo confiable.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de reordenamiento de segmentos.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add tcp chapter`.
 
 ## Task 4: UDP
 
-- [ ] Enseñar datagramas, ausencia de conexión, pérdida, duplicación y tamaño.
-- [ ] Comparar contra TCP con casos donde la simplicidad gana.
-- [ ] Incluir pruebas de entrega de mejor esfuerzo y validación de carga útil.
+**Files:**
+- Create: `docs/03-udp.md`
+- Modify: `src/udp.rs`
+- Create: `tests/udp_test.rs`
+- Create: `benches/udp_bench.rs`
+- Create: `diagrams/03-udp.mmd`
+- Create: `examples/udp_basic.rs`
+- Create: `examples/udp_intermediate.rs`
+- Create: `examples/udp_advanced.rs`
+- Create: `examples/udp_real_case.rs`
+- Create: `examples/soluciones/udp_datagram.rs`
+- Create: `examples/soluciones/udp_loss_model.rs`
+- Create: `examples/soluciones/udp_size_limit.rs`
+
+- [ ] Diseñar API mínima: `UdpDatagram`, `UdpEndpoint`, `DeliveryOutcome`, `UdpError`.
+- [ ] Escribir test rojo para datagrama con origen, destino y carga útil.
+- [ ] Implementar constructor y validación de tamaño.
+- [ ] Escribir test rojo para entrega de mejor esfuerzo con pérdida simulada determinista.
+- [ ] Implementar modelo determinista de pérdida, duplicación y entrega.
+- [ ] Escribir test rojo para carga útil demasiado grande.
+- [ ] Implementar error de tamaño.
+- [ ] Documentar datagramas, ausencia de conexión, pérdida, duplicación y tamaño.
+- [ ] Comparar UDP contra TCP y QUIC.
+- [ ] Crear diagrama de datagramas independientes.
+- [ ] Crear ejemplos progresivos y caso real de telemetría tolerante a pérdida.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de validación y despacho de datagramas.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add udp chapter`.
 
 ## Task 5: DNS
 
-- [ ] Enseñar resolución recursiva, autoridad, caché, TTL, registros A, AAAA,
-  CNAME, MX y TXT.
-- [ ] Incluir modelo de zona y resolver educativo.
-- [ ] Incluir pruebas de TTL, alias y registros inexistentes.
+**Files:**
+- Create: `docs/04-dns.md`
+- Modify: `src/dns.rs`
+- Create: `tests/dns_test.rs`
+- Create: `benches/dns_bench.rs`
+- Create: `diagrams/04-dns.mmd`
+- Create: `examples/dns_basic.rs`
+- Create: `examples/dns_intermediate.rs`
+- Create: `examples/dns_advanced.rs`
+- Create: `examples/dns_real_case.rs`
+- Create: `examples/soluciones/dns_a_record.rs`
+- Create: `examples/soluciones/dns_cname_resolution.rs`
+- Create: `examples/soluciones/dns_ttl_cache.rs`
+
+- [ ] Diseñar API mínima: `DomainName`, `DnsRecord`, `RecordType`, `Zone`, `Resolver`, `Resolution`, `DnsError`.
+- [ ] Escribir test rojo para registro A.
+- [ ] Implementar zona con registros A y AAAA.
+- [ ] Escribir test rojo para CNAME encadenado con límite de saltos.
+- [ ] Implementar resolución de alias.
+- [ ] Escribir test rojo para TTL y caché expirada.
+- [ ] Implementar caché educativa con reloj inyectado como valor.
+- [ ] Escribir test rojo para NXDOMAIN.
+- [ ] Implementar error de nombre inexistente.
+- [ ] Documentar resolución recursiva, autoridad, caché, TTL, A, AAAA, CNAME, MX y TXT.
+- [ ] Comparar DNS contra archivos hosts y descubrimiento de servicios.
+- [ ] Crear diagrama de resolución.
+- [ ] Crear ejemplos progresivos y caso real de resolución de API.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de resolución con caché fría y caliente.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add dns chapter`.
 
 ## Task 6: TLS
 
-- [ ] Enseñar objetivos de seguridad: confidencialidad, integridad,
-  autenticación y negociación.
-- [ ] Explicar certificados sin implementar criptografía casera de producción.
-- [ ] Incluir modelo de negociación y verificación de identidad.
+**Files:**
+- Create: `docs/05-tls.md`
+- Modify: `src/tls.rs`
+- Create: `tests/tls_test.rs`
+- Create: `benches/tls_bench.rs`
+- Create: `diagrams/05-tls.mmd`
+- Create: `examples/tls_basic.rs`
+- Create: `examples/tls_intermediate.rs`
+- Create: `examples/tls_advanced.rs`
+- Create: `examples/tls_real_case.rs`
+- Create: `examples/soluciones/tls_identity_check.rs`
+- Create: `examples/soluciones/tls_cipher_negotiation.rs`
+- Create: `examples/soluciones/tls_certificate_chain.rs`
+
+- [ ] Diseñar API mínima: `Certificate`, `CertificateChain`, `TlsVersion`, `CipherSuite`, `TlsClientHello`, `TlsServerHello`, `TlsHandshake`, `TlsError`.
+- [ ] Escribir test rojo para coincidencia de nombre del servidor.
+- [ ] Implementar verificación educativa de identidad.
+- [ ] Escribir test rojo para cadena de certificados incompleta.
+- [ ] Implementar validación estructural de cadena sin criptografía real.
+- [ ] Escribir test rojo para negociación de versión y cipher suite.
+- [ ] Implementar selección por intersección de capacidades.
+- [ ] Escribir test rojo para rechazo de algoritmo obsoleto.
+- [ ] Implementar política mínima de rechazo.
+- [ ] Documentar confidencialidad, integridad, autenticación, negociación y certificados.
+- [ ] Declarar explícitamente que no se implementa criptografía de producción.
+- [ ] Comparar TLS contra cifrado casero, VPN y texto plano.
+- [ ] Crear diagrama de negociación.
+- [ ] Crear ejemplos progresivos y caso real de identidad de API.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de negociación estructural.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add tls chapter`.
 
 ## Task 7: HTTP
 
-- [ ] Enseñar solicitud/respuesta, métodos, encabezados, códigos de estado,
-  cuerpo, conexiones persistentes y semántica de caché.
-- [ ] Incluir parser educativo limitado y explícito.
-- [ ] Incluir pruebas de solicitudes válidas, errores y límites.
+**Files:**
+- Create: `docs/06-http.md`
+- Modify: `src/http.rs`
+- Create: `tests/http_test.rs`
+- Create: `benches/http_bench.rs`
+- Create: `diagrams/06-http.mmd`
+- Create: `examples/http_basic.rs`
+- Create: `examples/http_intermediate.rs`
+- Create: `examples/http_advanced.rs`
+- Create: `examples/http_real_case.rs`
+- Create: `examples/soluciones/http_parse_request.rs`
+- Create: `examples/soluciones/http_status_response.rs`
+- Create: `examples/soluciones/http_cache_headers.rs`
+
+- [ ] Diseñar API mínima: `HttpMethod`, `HttpVersion`, `HeaderMap`, `HttpRequest`, `HttpResponse`, `StatusCode`, `HttpParseError`.
+- [ ] Escribir test rojo para parsear solicitud GET simple.
+- [ ] Implementar parser educativo limitado de línea inicial y encabezados.
+- [ ] Escribir test rojo para método inválido.
+- [ ] Implementar error de método.
+- [ ] Escribir test rojo para respuesta con status code y cuerpo.
+- [ ] Implementar construcción de respuesta.
+- [ ] Escribir test rojo para `Cache-Control` y `ETag` como metadatos.
+- [ ] Implementar helpers de caché.
+- [ ] Documentar solicitud/respuesta, métodos, encabezados, códigos de estado, cuerpo, conexiones persistentes y caché.
+- [ ] Comparar HTTP/1.1 contra HTTP/2 y gRPC.
+- [ ] Crear diagrama de solicitud-respuesta.
+- [ ] Crear ejemplos progresivos y caso real de endpoint educativo.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de parseo limitado.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add http chapter`.
 
 ## Task 8: HTTPS
 
-- [ ] Enseñar HTTP sobre TLS, autoridad, certificados, HSTS y errores comunes.
-- [ ] Evitar duplicar TLS y HTTP: este capítulo compone los dos contratos.
+**Files:**
+- Create: `docs/07-https.md`
+- Modify: `src/https.rs`
+- Create: `tests/https_test.rs`
+- Create: `benches/https_bench.rs`
+- Create: `diagrams/07-https.mmd`
+- Create: `examples/https_basic.rs`
+- Create: `examples/https_intermediate.rs`
+- Create: `examples/https_advanced.rs`
+- Create: `examples/https_real_case.rs`
+- Create: `examples/soluciones/https_secure_request.rs`
+- Create: `examples/soluciones/https_certificate_failure.rs`
+- Create: `examples/soluciones/https_hsts_policy.rs`
+
+- [ ] Diseñar API mínima: `HttpsRequest`, `HttpsPolicy`, `HstsPolicy`, `SecureTransport`, `HttpsError`.
+- [ ] Escribir test rojo para componer una solicitud HTTP sobre sesión TLS válida.
+- [ ] Implementar composición educativa con tipos de `http` y `tls`.
+- [ ] Escribir test rojo para certificado inválido.
+- [ ] Implementar propagación de error TLS.
+- [ ] Escribir test rojo para política HSTS.
+- [ ] Implementar decisión de forzar HTTPS.
+- [ ] Documentar HTTP sobre TLS, autoridad, certificados, HSTS y errores comunes.
+- [ ] Evitar reexplicar HTTP y TLS desde cero; citar capítulos 05 y 06.
+- [ ] Comparar HTTPS contra HTTP plano y TLS mal configurado.
+- [ ] Crear diagrama de composición.
+- [ ] Crear ejemplos progresivos y caso real de cliente que rechaza identidad incorrecta.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark solo si la composición tiene operación medible; si no, documentar que no aplica.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add https chapter`.
 
 ## Task 9: SMTP
 
-- [ ] Enseñar sesiones, sobre del mensaje, encabezados, MX y límites del correo
-  electrónico.
-- [ ] Incluir modelo de conversación cliente-servidor.
+**Files:**
+- Create: `docs/08-smtp.md`
+- Modify: `src/smtp.rs`
+- Create: `tests/smtp_test.rs`
+- Create: `benches/smtp_bench.rs`
+- Create: `diagrams/08-smtp.mmd`
+- Create: `examples/smtp_basic.rs`
+- Create: `examples/smtp_intermediate.rs`
+- Create: `examples/smtp_advanced.rs`
+- Create: `examples/smtp_real_case.rs`
+- Create: `examples/soluciones/smtp_conversation.rs`
+- Create: `examples/soluciones/smtp_envelope_headers.rs`
+- Create: `examples/soluciones/smtp_mx_selection.rs`
+
+- [ ] Diseñar API mínima: `SmtpCommand`, `SmtpReply`, `MailEnvelope`, `EmailHeaders`, `SmtpSession`, `SmtpError`.
+- [ ] Escribir test rojo para conversación `HELO`, `MAIL FROM`, `RCPT TO`, `DATA`.
+- [ ] Implementar máquina de sesión educativa.
+- [ ] Escribir test rojo para separar sobre del mensaje y encabezados.
+- [ ] Implementar `MailEnvelope` y `EmailHeaders`.
+- [ ] Escribir test rojo para selección de MX por prioridad.
+- [ ] Implementar ordenamiento de MX.
+- [ ] Escribir test rojo para comando fuera de orden.
+- [ ] Implementar error de secuencia.
+- [ ] Documentar sesiones, sobre del mensaje, encabezados, MX y límites del correo electrónico.
+- [ ] Comparar SMTP contra HTTP APIs de envío de correo.
+- [ ] Crear diagrama de sesión.
+- [ ] Crear ejemplos progresivos y caso real de cola de correo saliente.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de validación de comandos.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add smtp chapter`.
 
 ## Task 10: WebSocket
 
-- [ ] Enseñar actualización desde HTTP, tramas, mensajes, ping/pong y cierre.
+**Files:**
+- Create: `docs/09-websocket.md`
+- Modify: `src/websocket.rs`
+- Create: `tests/websocket_test.rs`
+- Create: `benches/websocket_bench.rs`
+- Create: `diagrams/09-websocket.mmd`
+- Create: `examples/websocket_basic.rs`
+- Create: `examples/websocket_intermediate.rs`
+- Create: `examples/websocket_advanced.rs`
+- Create: `examples/websocket_real_case.rs`
+- Create: `examples/soluciones/websocket_upgrade.rs`
+- Create: `examples/soluciones/websocket_frames.rs`
+- Create: `examples/soluciones/websocket_ping_pong.rs`
+
+- [ ] Diseñar API mínima: `WebSocketUpgrade`, `WebSocketFrame`, `Opcode`, `CloseCode`, `WebSocketState`, `WebSocketError`.
+- [ ] Escribir test rojo para actualización desde HTTP.
+- [ ] Implementar validación educativa de actualización.
+- [ ] Escribir test rojo para frame de texto.
+- [ ] Implementar frame con opcode y carga útil.
+- [ ] Escribir test rojo para ping/pong.
+- [ ] Implementar respuesta pong.
+- [ ] Escribir test rojo para cierre ordenado.
+- [ ] Implementar transición a cerrado.
+- [ ] Documentar actualización desde HTTP, tramas, mensajes, ping/pong y cierre.
 - [ ] Comparar contra polling y Server-Sent Events.
+- [ ] Crear diagrama de actualización y tramas.
+- [ ] Crear ejemplos progresivos y caso real de notificaciones.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de codificación/decodificación de tramas educativas.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add websocket chapter`.
 
 ## Task 11: gRPC
 
-- [ ] Enseñar contratos, HTTP/2, flujos, códigos de estado y compatibilidad.
+**Files:**
+- Create: `docs/10-grpc.md`
+- Modify: `src/grpc.rs`
+- Create: `tests/grpc_test.rs`
+- Create: `benches/grpc_bench.rs`
+- Create: `diagrams/10-grpc.mmd`
+- Create: `examples/grpc_basic.rs`
+- Create: `examples/grpc_intermediate.rs`
+- Create: `examples/grpc_advanced.rs`
+- Create: `examples/grpc_real_case.rs`
+- Create: `examples/soluciones/grpc_method_contract.rs`
+- Create: `examples/soluciones/grpc_status_mapping.rs`
+- Create: `examples/soluciones/grpc_streaming_model.rs`
+
+- [ ] Diseñar API mínima: `GrpcMethod`, `GrpcService`, `GrpcMessage`, `GrpcStatus`, `StreamMode`, `GrpcError`.
+- [ ] Escribir test rojo para contrato de servicio y método.
+- [ ] Implementar registro educativo de métodos.
+- [ ] Escribir test rojo para mapeo de códigos de estado.
+- [ ] Implementar `GrpcStatus`.
+- [ ] Escribir test rojo para modo unario, flujo del servidor, flujo del cliente y bidireccional.
+- [ ] Implementar `StreamMode`.
+- [ ] Escribir test rojo para compatibilidad de versión de contrato.
+- [ ] Implementar verificación simple de versión.
+- [ ] Documentar contratos, HTTP/2, flujos, códigos de estado y compatibilidad.
 - [ ] Comparar contra REST sin convertirlo en guerra de estilos.
+- [ ] Crear diagrama de llamada y stream.
+- [ ] Crear ejemplos progresivos y caso real de servicio interno.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de validación de contratos.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add grpc chapter`.
 
 ## Task 12: QUIC
 
-- [ ] Enseñar transporte sobre UDP, flujos, negociación integrada, migración de
-  conexión y relación con HTTP/3.
-- [ ] Comparar contra TCP + TLS con foco en latencia y evolución.
+**Files:**
+- Create: `docs/11-quic.md`
+- Modify: `src/quic.rs`
+- Create: `tests/quic_test.rs`
+- Create: `benches/quic_bench.rs`
+- Create: `diagrams/11-quic.mmd`
+- Create: `examples/quic_basic.rs`
+- Create: `examples/quic_intermediate.rs`
+- Create: `examples/quic_advanced.rs`
+- Create: `examples/quic_real_case.rs`
+- Create: `examples/soluciones/quic_streams.rs`
+- Create: `examples/soluciones/quic_connection_migration.rs`
+- Create: `examples/soluciones/quic_handshake.rs`
 
-## Integración con otros cursos
+- [ ] Diseñar API mínima: `QuicConnectionId`, `QuicStreamId`, `QuicPacket`, `QuicStream`, `ConnectionMigration`, `QuicError`.
+- [ ] Escribir test rojo para múltiples flujos independientes.
+- [ ] Implementar modelo de flujos sin bloqueo entre ellos.
+- [ ] Escribir test rojo para migración de conexión por cambio de dirección.
+- [ ] Implementar `ConnectionMigration`.
+- [ ] Escribir test rojo para negociación integrada con seguridad.
+- [ ] Implementar modelo educativo de negociación.
+- [ ] Escribir test rojo para pérdida de paquete en un flujo sin detener otro.
+- [ ] Implementar aislamiento de flujos.
+- [ ] Documentar transporte sobre UDP, flujos, negociación integrada, migración de conexión y HTTP/3.
+- [ ] Comparar contra TCP + TLS con foco en latencia y evolución.
+- [ ] Crear diagrama de conexión, paquetes y flujos.
+- [ ] Crear ejemplos progresivos y caso real de conexión móvil.
+- [ ] Crear ejercicios y soluciones.
+- [ ] Crear benchmark de despacho de paquetes por flujo.
+- [ ] Actualizar estado y checklist.
+- [ ] Verificar y hacer commit: `feat: add quic chapter`.
+
+## Task 13: Integración Entre Cursos
+
+**Files:**
+- Modify: `README.md`
+- Modify: `ROADMAP.md`
+- Modify: `docs/01-layers-ip-routing.md`
+- Modify: `docs/02-tcp.md`
+- Modify: `docs/03-udp.md`
+- Modify: `docs/04-dns.md`
+- Modify: `docs/05-tls.md`
+- Modify: `docs/06-http.md`
+- Modify: `docs/07-https.md`
+- Modify: `docs/09-websocket.md`
+- Modify: `docs/10-grpc.md`
+- Modify: `docs/11-quic.md`
 
 - [ ] Citar `rust-operating-systems` cuando un mecanismo dependa del kernel.
 - [ ] Citar `rust-async` cuando la concurrencia del servidor sea el tema.
 - [ ] Citar `rust-crypto` para criptografía interna de TLS.
-- [ ] Citar `rust-distributed-systems` para consenso, relojes y comunicación
-  entre nodos.
+- [ ] Citar `rust-distributed-systems` para consenso, relojes y comunicación entre nodos.
 - [ ] Citar `rust-api-design` para diseño de APIs por encima de HTTP/gRPC.
+- [ ] Citar `rust-cloud` para VPC, balanceo y servicios administrados.
+- [ ] Citar `rust-devops` para observabilidad, diagnóstico y operación.
+- [ ] Citar `rust-travel` donde redes sostenga búsquedas, reservas e integraciones externas.
+- [ ] Mantener cada referencia como nota de camino, no como reexplicación.
+- [ ] Verificar y hacer commit: `docs: add networking cross-course links`.
 
-## Finalización del curso
+## Task 14: Revisión Editorial Y Ortográfica
 
-- [ ] Todo ítem público tiene doc-comments con ejemplos.
-- [ ] Cada capítulo cumple las doce secciones de RFC-0001 §14.
-- [ ] Cada capítulo tiene cuatro a ocho ejercicios en niveles 1 a 4.
-- [ ] Cada ejercicio de nivel 1 a 3 tiene solución ejecutable.
-- [ ] `cargo fmt --check` pasa.
-- [ ] `cargo clippy --all-targets --all-features -- -D warnings` pasa.
-- [ ] `cargo test --all-targets` pasa.
-- [ ] `cargo test --doc` pasa.
-- [ ] README y ROADMAP reflejan el estado real.
+**Files:**
+- Modify: `docs/*.md`
+- Modify: `README.md`
+- Modify: `ROADMAP.md`
+- Modify: `AGENTS.md`
+
+- [ ] Buscar errores comunes: `canonico`, `prerequisitos`, `reclamacion`, `epoca`, `critica`, `seccion`, `retencion`, `senal`, `contrasena`.
+- [ ] Buscar anglicismos evitables: `request`, `response`, `headers`, `payload`, `best-effort`, `handshake`, `streaming`, `frames`, `upgrade`.
+- [ ] Mantener términos técnicos cuando sean nombres de protocolo, API o convención aceptada: `HTTP`, `TLS`, `WebSocket`, `gRPC`, `QUIC`, `ETag`.
+- [ ] Revisar que cada capítulo use español es-MX natural y consistente.
+- [ ] Revisar que no haya capítulos marcados como completos si están parciales.
+- [ ] Verificar y hacer commit: `docs: polish networking course language`.
+
+## Task 15: Finalización Del Curso
+
+**Files:**
+- Modify: `README.md`
+- Modify: `ROADMAP.md`
+- Modify: `docs/SUMMARY.md`
+- Modify: `docs/superpowers/plans/2026-07-16-rust-networking-course.md`
+
+- [ ] Confirmar que todo ítem público tiene doc-comments con ejemplos.
+- [ ] Confirmar que cada capítulo cumple las doce secciones de RFC-0001 §14.
+- [ ] Confirmar que cada capítulo tiene cuatro a ocho ejercicios.
+- [ ] Confirmar que cada ejercicio de nivel 1 a 3 tiene solución ejecutable.
+- [ ] Confirmar que cada benchmark agregado corre.
+- [ ] Ejecutar `cargo fmt --check`.
+- [ ] Ejecutar `cargo clippy --all-targets --all-features -- -D warnings`.
+- [ ] Ejecutar `cargo test --all-targets`.
+- [ ] Ejecutar `cargo test --doc`.
+- [ ] Ejecutar `cargo bench`.
+- [ ] Ejecutar `git diff --check`.
+- [ ] Confirmar que README y ROADMAP reflejan el estado real.
+- [ ] Confirmar que los topics y About de GitHub reflejan la identidad del curso.
+- [ ] Hacer commit final: `docs: complete networking course checklist`.
