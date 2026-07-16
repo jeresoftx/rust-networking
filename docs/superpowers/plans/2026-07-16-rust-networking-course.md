@@ -245,24 +245,24 @@
 - Create: `examples/soluciones/tls_cipher_negotiation.rs`
 - Create: `examples/soluciones/tls_certificate_chain.rs`
 
-- [ ] Diseñar API mínima: `Certificate`, `CertificateChain`, `TlsVersion`, `CipherSuite`, `TlsClientHello`, `TlsServerHello`, `TlsHandshake`, `TlsError`.
-- [ ] Escribir test rojo para coincidencia de nombre del servidor.
-- [ ] Implementar verificación educativa de identidad.
-- [ ] Escribir test rojo para cadena de certificados incompleta.
-- [ ] Implementar validación estructural de cadena sin criptografía real.
-- [ ] Escribir test rojo para negociación de versión y cipher suite.
-- [ ] Implementar selección por intersección de capacidades.
-- [ ] Escribir test rojo para rechazo de algoritmo obsoleto.
-- [ ] Implementar política mínima de rechazo.
-- [ ] Documentar confidencialidad, integridad, autenticación, negociación y certificados.
-- [ ] Declarar explícitamente que no se implementa criptografía de producción.
-- [ ] Comparar TLS contra cifrado casero, VPN y texto plano.
-- [ ] Crear diagrama de negociación.
-- [ ] Crear ejemplos progresivos y caso real de identidad de API.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de negociación estructural.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add tls chapter`.
+- [x] Diseñar API mínima: `Certificate`, `CertificateChain`, `TlsVersion`, `CipherSuite`, `TlsClientHello`, `TlsServerHello`, `TlsHandshake`, `TlsError`.
+- [x] Escribir test rojo para coincidencia de nombre del servidor.
+- [x] Implementar verificación educativa de identidad.
+- [x] Escribir test rojo para cadena de certificados incompleta.
+- [x] Implementar validación estructural de cadena sin criptografía real.
+- [x] Escribir test rojo para negociación de versión y cipher suite.
+- [x] Implementar selección por intersección de capacidades.
+- [x] Escribir test rojo para rechazo de algoritmo obsoleto.
+- [x] Implementar política mínima de rechazo.
+- [x] Documentar confidencialidad, integridad, autenticación, negociación y certificados.
+- [x] Declarar explícitamente que no se implementa criptografía de producción.
+- [x] Comparar TLS contra cifrado casero, VPN y texto plano.
+- [x] Crear diagrama de negociación.
+- [x] Crear ejemplos progresivos y caso real de identidad de API.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de negociación estructural.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add tls chapter`.
 
 ## Task 7: HTTP
 

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Cliente
+    participant Servidor
+    Cliente->>Servidor: ClientHello(nombre, versiones, suites)
+    Servidor->>Servidor: verifica cadena de certificados
+    Servidor->>Servidor: compara nombre solicitado con certificado
+    Servidor->>Servidor: elige versión común más alta
+    Servidor->>Servidor: elige suite común permitida
+    alt negociación válida
+        Servidor-->>Cliente: ServerHello(versión, suite, certificado)
+    else identidad, cadena o política falla
+        Servidor-->>Cliente: error TLS educativo
+    end
