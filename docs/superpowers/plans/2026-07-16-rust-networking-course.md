@@ -211,23 +211,23 @@
 - Create: `examples/soluciones/dns_cname_resolution.rs`
 - Create: `examples/soluciones/dns_ttl_cache.rs`
 
-- [ ] Diseñar API mínima: `DomainName`, `DnsRecord`, `RecordType`, `Zone`, `Resolver`, `Resolution`, `DnsError`.
-- [ ] Escribir test rojo para registro A.
-- [ ] Implementar zona con registros A y AAAA.
-- [ ] Escribir test rojo para CNAME encadenado con límite de saltos.
-- [ ] Implementar resolución de alias.
-- [ ] Escribir test rojo para TTL y caché expirada.
-- [ ] Implementar caché educativa con reloj inyectado como valor.
-- [ ] Escribir test rojo para NXDOMAIN.
-- [ ] Implementar error de nombre inexistente.
-- [ ] Documentar resolución recursiva, autoridad, caché, TTL, A, AAAA, CNAME, MX y TXT.
-- [ ] Comparar DNS contra archivos hosts y descubrimiento de servicios.
-- [ ] Crear diagrama de resolución.
-- [ ] Crear ejemplos progresivos y caso real de resolución de API.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de resolución con caché fría y caliente.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add dns chapter`.
+- [x] Diseñar API mínima: `DomainName`, `DnsRecord`, `RecordType`, `Zone`, `Resolver`, `Resolution`, `DnsError`.
+- [x] Escribir test rojo para registro A.
+- [x] Implementar zona con registros A y AAAA.
+- [x] Escribir test rojo para CNAME encadenado con límite de saltos.
+- [x] Implementar resolución de alias.
+- [x] Escribir test rojo para TTL y caché expirada.
+- [x] Implementar caché educativa con reloj inyectado como valor.
+- [x] Escribir test rojo para NXDOMAIN.
+- [x] Implementar error de nombre inexistente.
+- [x] Documentar resolución recursiva, autoridad, caché, TTL, A, AAAA, CNAME, MX y TXT.
+- [x] Comparar DNS contra archivos hosts y descubrimiento de servicios.
+- [x] Crear diagrama de resolución.
+- [x] Crear ejemplos progresivos y caso real de resolución de API.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de resolución con caché fría y caliente.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add dns chapter`.
 
 ## Task 6: TLS
 

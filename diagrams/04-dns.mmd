@@ -1,0 +1,16 @@
+flowchart LR
+    APP["Aplicación consulta api.jeresoft.test A"] --> RES["Resolvedor"]
+    RES --> CACHE{"¿Respuesta vigente en caché?"}
+    CACHE -- "sí" --> HIT["devolver respuesta cacheada"]
+    CACHE -- "no" --> ZONE["zona autoritativa"]
+    ZONE --> TYPE{"¿Existe registro A?"}
+    TYPE -- "sí" --> ANSWER["devolver registro A\ny guardar hasta TTL"]
+    TYPE -- "no, hay CNAME" --> CNAME["seguir alias"]
+    CNAME --> LIMIT{"¿límite excedido?"}
+    LIMIT -- "sí" --> ERR["error de límite CNAME"]
+    LIMIT -- "no" --> ZONE
+    TYPE -- "nombre inexistente" --> NX["NXDOMAIN"]
+    ANSWER --> APP
+    HIT --> APP
+    ERR --> APP
+    NX --> APP

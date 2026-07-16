@@ -49,6 +49,18 @@ path = "examples/soluciones/udp_loss_model.rs"
 name = "solution_udp_size_limit"
 path = "examples/soluciones/udp_size_limit.rs"
 
+[[example]]
+name = "solution_dns_a_record"
+path = "examples/soluciones/dns_a_record.rs"
+
+[[example]]
+name = "solution_dns_cname_resolution"
+path = "examples/soluciones/dns_cname_resolution.rs"
+
+[[example]]
+name = "solution_dns_ttl_cache"
+path = "examples/soluciones/dns_ttl_cache.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -59,4 +71,8 @@ harness = false
 
 [[bench]]
 name = "udp_bench"
+harness = false
+
+[[bench]]
+name = "dns_bench"
 harness = false

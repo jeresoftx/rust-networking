@@ -37,7 +37,7 @@ de reutilizarse en cursos posteriores.
 | 01 | Modelo de capas, IP y enrutamiento | `src/layers.rs` | benchmarked |
 | 02 | TCP | `src/tcp.rs` | benchmarked |
 | 03 | UDP | `src/udp.rs` | benchmarked |
-| 04 | DNS | `src/dns.rs` | planned |
+| 04 | DNS | `src/dns.rs` | benchmarked |
 | 05 | TLS | `src/tls.rs` | planned |
 | 06 | HTTP | `src/http.rs` | planned |
 | 07 | HTTPS | `src/https.rs` | planned |
