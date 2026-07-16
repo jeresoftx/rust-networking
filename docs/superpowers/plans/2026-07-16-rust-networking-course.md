@@ -314,22 +314,22 @@
 - Create: `examples/soluciones/https_certificate_failure.rs`
 - Create: `examples/soluciones/https_hsts_policy.rs`
 
-- [ ] Diseñar API mínima: `HttpsRequest`, `HttpsPolicy`, `HstsPolicy`, `SecureTransport`, `HttpsError`.
-- [ ] Escribir test rojo para componer una solicitud HTTP sobre sesión TLS válida.
-- [ ] Implementar composición educativa con tipos de `http` y `tls`.
-- [ ] Escribir test rojo para certificado inválido.
-- [ ] Implementar propagación de error TLS.
-- [ ] Escribir test rojo para política HSTS.
-- [ ] Implementar decisión de forzar HTTPS.
-- [ ] Documentar HTTP sobre TLS, autoridad, certificados, HSTS y errores comunes.
-- [ ] Evitar reexplicar HTTP y TLS desde cero; citar capítulos 05 y 06.
-- [ ] Comparar HTTPS contra HTTP plano y TLS mal configurado.
-- [ ] Crear diagrama de composición.
-- [ ] Crear ejemplos progresivos y caso real de cliente que rechaza identidad incorrecta.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark solo si la composición tiene operación medible; si no, documentar que no aplica.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add https chapter`.
+- [x] Diseñar API mínima: `HttpsRequest`, `HttpsPolicy`, `HstsPolicy`, `SecureTransport`, `HttpsError`.
+- [x] Escribir test rojo para componer una solicitud HTTP sobre sesión TLS válida.
+- [x] Implementar composición educativa con tipos de `http` y `tls`.
+- [x] Escribir test rojo para certificado inválido.
+- [x] Implementar propagación de error TLS.
+- [x] Escribir test rojo para política HSTS.
+- [x] Implementar decisión de forzar HTTPS.
+- [x] Documentar HTTP sobre TLS, autoridad, certificados, HSTS y errores comunes.
+- [x] Evitar reexplicar HTTP y TLS desde cero; citar capítulos 05 y 06.
+- [x] Comparar HTTPS contra HTTP plano y TLS mal configurado.
+- [x] Crear diagrama de composición.
+- [x] Crear ejemplos progresivos y caso real de cliente que rechaza identidad incorrecta.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark solo si la composición tiene operación medible; si no, documentar que no aplica.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add https chapter`.
 
 ## Task 9: SMTP
 

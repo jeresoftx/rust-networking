@@ -1,0 +1,10 @@
+flowchart LR
+    Url["URL https://api.jeresoft.test/academy"] --> Autoridad["Autoridad: api.jeresoft.test"]
+    Autoridad --> Hsts{"¿HSTS fuerza HTTPS?"}
+    Hsts -- "sí" --> Tls["Negociación TLS"]
+    Hsts -- "no, pero esquema es https" --> Tls
+    Tls --> Certificado{"¿Certificado coincide?"}
+    Certificado -- "no" --> Rechazo["Rechazar antes de HTTP"]
+    Certificado -- "sí" --> Canal["Canal seguro"]
+    Canal --> Http["Solicitud HTTP: método, ruta, encabezados"]
+    Http --> Respuesta["Respuesta HTTP sobre TLS"]
