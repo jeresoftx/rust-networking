@@ -109,6 +109,18 @@ path = "examples/soluciones/smtp_envelope_headers.rs"
 name = "solution_smtp_mx_selection"
 path = "examples/soluciones/smtp_mx_selection.rs"
 
+[[example]]
+name = "solution_websocket_upgrade"
+path = "examples/soluciones/websocket_upgrade.rs"
+
+[[example]]
+name = "solution_websocket_frames"
+path = "examples/soluciones/websocket_frames.rs"
+
+[[example]]
+name = "solution_websocket_ping_pong"
+path = "examples/soluciones/websocket_ping_pong.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -139,4 +151,8 @@ harness = false
 
 [[bench]]
 name = "smtp_bench"
+harness = false
+
+[[bench]]
+name = "websocket_bench"
 harness = false

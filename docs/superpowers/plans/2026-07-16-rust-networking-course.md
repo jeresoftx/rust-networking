@@ -381,23 +381,23 @@
 - Create: `examples/soluciones/websocket_frames.rs`
 - Create: `examples/soluciones/websocket_ping_pong.rs`
 
-- [ ] Diseñar API mínima: `WebSocketUpgrade`, `WebSocketFrame`, `Opcode`, `CloseCode`, `WebSocketState`, `WebSocketError`.
-- [ ] Escribir test rojo para actualización desde HTTP.
-- [ ] Implementar validación educativa de actualización.
-- [ ] Escribir test rojo para frame de texto.
-- [ ] Implementar frame con opcode y carga útil.
-- [ ] Escribir test rojo para ping/pong.
-- [ ] Implementar respuesta pong.
-- [ ] Escribir test rojo para cierre ordenado.
-- [ ] Implementar transición a cerrado.
-- [ ] Documentar actualización desde HTTP, tramas, mensajes, ping/pong y cierre.
-- [ ] Comparar contra polling y Server-Sent Events.
-- [ ] Crear diagrama de actualización y tramas.
-- [ ] Crear ejemplos progresivos y caso real de notificaciones.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de codificación/decodificación de tramas educativas.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add websocket chapter`.
+- [x] Diseñar API mínima: `WebSocketUpgrade`, `WebSocketFrame`, `Opcode`, `CloseCode`, `WebSocketState`, `WebSocketError`.
+- [x] Escribir test rojo para actualización desde HTTP.
+- [x] Implementar validación educativa de actualización.
+- [x] Escribir test rojo para frame de texto.
+- [x] Implementar frame con opcode y carga útil.
+- [x] Escribir test rojo para ping/pong.
+- [x] Implementar respuesta pong.
+- [x] Escribir test rojo para cierre ordenado.
+- [x] Implementar transición a cerrado.
+- [x] Documentar actualización desde HTTP, tramas, mensajes, ping/pong y cierre.
+- [x] Comparar contra polling y Server-Sent Events.
+- [x] Crear diagrama de actualización y tramas.
+- [x] Crear ejemplos progresivos y caso real de notificaciones.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de codificación/decodificación de tramas educativas.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add websocket chapter`.
 
 ## Task 11: gRPC
 

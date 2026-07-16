@@ -42,7 +42,7 @@ de reutilizarse en cursos posteriores.
 | 06 | HTTP | `src/http.rs` | benchmarked |
 | 07 | HTTPS | `src/https.rs` | benchmarked |
 | 08 | SMTP | `src/smtp.rs` | benchmarked |
-| 09 | WebSocket | `src/websocket.rs` | planned |
+| 09 | WebSocket | `src/websocket.rs` | benchmarked |
 | 10 | gRPC | `src/grpc.rs` | planned |
 | 11 | QUIC | `src/quic.rs` | planned |
 

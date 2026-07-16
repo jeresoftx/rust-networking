@@ -1,0 +1,10 @@
+flowchart LR
+    Cliente["Cliente"] --> Solicitud["GET con Connection: Upgrade"]
+    Solicitud --> Validacion{"¿Encabezados válidos?"}
+    Validacion -- "no" --> Rechazo["Rechazar actualización"]
+    Validacion -- "sí" --> Abierta["Conexión WebSocket abierta"]
+    Abierta --> Texto["Trama Text/Binary"]
+    Abierta --> Ping["Ping"]
+    Ping --> Pong["Pong con misma carga"]
+    Abierta --> Close["Close"]
+    Close --> Cerrada["Conexión cerrada"]
