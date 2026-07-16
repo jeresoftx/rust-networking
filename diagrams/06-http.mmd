@@ -1,0 +1,10 @@
+flowchart LR
+    Cliente["Cliente HTTP"] --> Solicitud["Solicitud: método, ruta, versión"]
+    Solicitud --> Encabezados["Encabezados: Host, Accept, Cache-Control"]
+    Encabezados --> Servidor["Aplicación del servidor"]
+    Servidor --> Validacion{"¿Solicitud válida?"}
+    Validacion -- "sí" --> RespuestaOk["Respuesta 200/201 + cuerpo"]
+    Validacion -- "no" --> RespuestaError["Respuesta 400/404/500"]
+    RespuestaOk --> Cache["Metadatos: Cache-Control + ETag"]
+    RespuestaError --> Cliente
+    Cache --> Cliente

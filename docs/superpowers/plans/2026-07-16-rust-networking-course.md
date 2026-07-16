@@ -280,23 +280,23 @@
 - Create: `examples/soluciones/http_status_response.rs`
 - Create: `examples/soluciones/http_cache_headers.rs`
 
-- [ ] Diseñar API mínima: `HttpMethod`, `HttpVersion`, `HeaderMap`, `HttpRequest`, `HttpResponse`, `StatusCode`, `HttpParseError`.
-- [ ] Escribir test rojo para parsear solicitud GET simple.
-- [ ] Implementar parser educativo limitado de línea inicial y encabezados.
-- [ ] Escribir test rojo para método inválido.
-- [ ] Implementar error de método.
-- [ ] Escribir test rojo para respuesta con status code y cuerpo.
-- [ ] Implementar construcción de respuesta.
-- [ ] Escribir test rojo para `Cache-Control` y `ETag` como metadatos.
-- [ ] Implementar helpers de caché.
-- [ ] Documentar solicitud/respuesta, métodos, encabezados, códigos de estado, cuerpo, conexiones persistentes y caché.
-- [ ] Comparar HTTP/1.1 contra HTTP/2 y gRPC.
-- [ ] Crear diagrama de solicitud-respuesta.
-- [ ] Crear ejemplos progresivos y caso real de endpoint educativo.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de parseo limitado.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add http chapter`.
+- [x] Diseñar API mínima: `HttpMethod`, `HttpVersion`, `HeaderMap`, `HttpRequest`, `HttpResponse`, `StatusCode`, `HttpParseError`.
+- [x] Escribir test rojo para parsear solicitud GET simple.
+- [x] Implementar parser educativo limitado de línea inicial y encabezados.
+- [x] Escribir test rojo para método inválido.
+- [x] Implementar error de método.
+- [x] Escribir test rojo para respuesta con código de estado y cuerpo.
+- [x] Implementar construcción de respuesta.
+- [x] Escribir test rojo para `Cache-Control` y `ETag` como metadatos.
+- [x] Implementar helpers de caché.
+- [x] Documentar solicitud/respuesta, métodos, encabezados, códigos de estado, cuerpo, conexiones persistentes y caché.
+- [x] Comparar HTTP/1.1 contra HTTP/2 y gRPC.
+- [x] Crear diagrama de solicitud-respuesta.
+- [x] Crear ejemplos progresivos y caso real de punto de entrada educativo.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de parseo limitado.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add http chapter`.
 
 ## Task 8: HTTPS
 

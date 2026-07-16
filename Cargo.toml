@@ -73,6 +73,18 @@ path = "examples/soluciones/tls_cipher_negotiation.rs"
 name = "solution_tls_certificate_chain"
 path = "examples/soluciones/tls_certificate_chain.rs"
 
+[[example]]
+name = "solution_http_parse_request"
+path = "examples/soluciones/http_parse_request.rs"
+
+[[example]]
+name = "solution_http_status_response"
+path = "examples/soluciones/http_status_response.rs"
+
+[[example]]
+name = "solution_http_cache_headers"
+path = "examples/soluciones/http_cache_headers.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -91,4 +103,8 @@ harness = false
 
 [[bench]]
 name = "tls_bench"
+harness = false
+
+[[bench]]
+name = "http_bench"
 harness = false
