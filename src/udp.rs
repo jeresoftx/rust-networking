@@ -55,16 +55,16 @@ pub enum UdpError {
 /// Datagrama UDP educativo.
 ///
 /// Este tipo representa el contrato básico de UDP: origen, destino y carga
-/// útil independiente. No modela encabezados reales ni checksum.
+/// útil independiente. No modela encabezados reales ni suma de verificación.
 ///
 /// # Examples
 ///
 /// ```
 /// use rust_networking::udp::{UdpDatagram, UdpEndpoint};
 ///
-/// let source = UdpEndpoint::new("sensor", 4000);
-/// let destination = UdpEndpoint::new("collector", 8125);
-/// let datagram = UdpDatagram::new(source, destination, b"ok".to_vec()).unwrap();
+/// let origen = UdpEndpoint::new("sensor", 4000);
+/// let destino = UdpEndpoint::new("colector", 8125);
+/// let datagram = UdpDatagram::new(origen, destino, b"ok".to_vec()).unwrap();
 ///
 /// assert_eq!(datagram.payload(), b"ok");
 /// ```

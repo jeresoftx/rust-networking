@@ -17,9 +17,9 @@ fn datagram_records_source_destination_and_payload() {
 #[test]
 fn deterministic_best_effort_model_can_deliver_duplicate_or_drop() {
     let source = UdpEndpoint::new("sensor-a", 40_000);
-    let destination = UdpEndpoint::new("collector", 8125);
+    let destination = UdpEndpoint::new("colector", 8125);
     let datagram =
-        UdpDatagram::new(source, destination, b"temperature=31".to_vec()).expect("válido");
+        UdpDatagram::new(source, destination, b"temperatura=31".to_vec()).expect("válido");
 
     assert_eq!(
         DeliveryOutcome::deterministic(datagram.clone(), 1),

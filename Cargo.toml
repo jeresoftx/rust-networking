@@ -37,10 +37,26 @@ path = "examples/soluciones/tcp_ordered_stream.rs"
 name = "solution_tcp_retransmission"
 path = "examples/soluciones/tcp_retransmission.rs"
 
+[[example]]
+name = "solution_udp_datagram"
+path = "examples/soluciones/udp_datagram.rs"
+
+[[example]]
+name = "solution_udp_loss_model"
+path = "examples/soluciones/udp_loss_model.rs"
+
+[[example]]
+name = "solution_udp_size_limit"
+path = "examples/soluciones/udp_size_limit.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
 
 [[bench]]
 name = "tcp_bench"
+harness = false
+
+[[bench]]
+name = "udp_bench"
 harness = false

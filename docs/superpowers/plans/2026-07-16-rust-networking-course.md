@@ -179,21 +179,21 @@
 - Create: `examples/soluciones/udp_loss_model.rs`
 - Create: `examples/soluciones/udp_size_limit.rs`
 
-- [ ] Diseñar API mínima: `UdpDatagram`, `UdpEndpoint`, `DeliveryOutcome`, `UdpError`.
-- [ ] Escribir test rojo para datagrama con origen, destino y carga útil.
-- [ ] Implementar constructor y validación de tamaño.
-- [ ] Escribir test rojo para entrega de mejor esfuerzo con pérdida simulada determinista.
-- [ ] Implementar modelo determinista de pérdida, duplicación y entrega.
-- [ ] Escribir test rojo para carga útil demasiado grande.
-- [ ] Implementar error de tamaño.
-- [ ] Documentar datagramas, ausencia de conexión, pérdida, duplicación y tamaño.
-- [ ] Comparar UDP contra TCP y QUIC.
-- [ ] Crear diagrama de datagramas independientes.
-- [ ] Crear ejemplos progresivos y caso real de telemetría tolerante a pérdida.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de validación y despacho de datagramas.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add udp chapter`.
+- [x] Diseñar API mínima: `UdpDatagram`, `UdpEndpoint`, `DeliveryOutcome`, `UdpError`.
+- [x] Escribir test rojo para datagrama con origen, destino y carga útil.
+- [x] Implementar constructor y validación de tamaño.
+- [x] Escribir test rojo para entrega de mejor esfuerzo con pérdida simulada determinista.
+- [x] Implementar modelo determinista de pérdida, duplicación y entrega.
+- [x] Escribir test rojo para carga útil demasiado grande.
+- [x] Implementar error de tamaño.
+- [x] Documentar datagramas, ausencia de conexión, pérdida, duplicación y tamaño.
+- [x] Comparar UDP contra TCP y QUIC.
+- [x] Crear diagrama de datagramas independientes.
+- [x] Crear ejemplos progresivos y caso real de telemetría tolerante a pérdida.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de validación y despacho de datagramas.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add udp chapter`.
 
 ## Task 5: DNS
 

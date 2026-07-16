@@ -1,0 +1,9 @@
+flowchart LR
+    APP["Aplicación: métrica o mensaje"] --> D1["Datagrama UDP"]
+    D1 --> NET["IP: mejor esfuerzo"]
+    NET --> R{"Resultado posible"}
+    R -- "llega una vez" --> OK["entrega a la aplicación"]
+    R -- "llega más de una vez" --> DUP["la aplicación decide si descarta duplicados"]
+    R -- "no llega" --> LOST["la aplicación tolera o compensa la pérdida"]
+    APP --> D2["Siguiente datagrama independiente"]
+    D2 --> NET
