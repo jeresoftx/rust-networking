@@ -1,0 +1,10 @@
+flowchart LR
+    Dominio["Dominio destino"] --> MX["Registros MX"]
+    MX --> Seleccion["Seleccionar menor prioridad"]
+    Seleccion --> Sesion["Sesión SMTP"]
+    Sesion --> Helo["HELO"]
+    Helo --> Sobre["MAIL FROM + RCPT TO"]
+    Sobre --> Data["DATA"]
+    Data --> Mensaje["Encabezados + cuerpo"]
+    Mensaje --> Aceptado["250 mensaje aceptado"]
+    Sesion --> Error["Comando fuera de orden"]

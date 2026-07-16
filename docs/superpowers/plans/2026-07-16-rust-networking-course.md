@@ -347,23 +347,23 @@
 - Create: `examples/soluciones/smtp_envelope_headers.rs`
 - Create: `examples/soluciones/smtp_mx_selection.rs`
 
-- [ ] Diseñar API mínima: `SmtpCommand`, `SmtpReply`, `MailEnvelope`, `EmailHeaders`, `SmtpSession`, `SmtpError`.
-- [ ] Escribir test rojo para conversación `HELO`, `MAIL FROM`, `RCPT TO`, `DATA`.
-- [ ] Implementar máquina de sesión educativa.
-- [ ] Escribir test rojo para separar sobre del mensaje y encabezados.
-- [ ] Implementar `MailEnvelope` y `EmailHeaders`.
-- [ ] Escribir test rojo para selección de MX por prioridad.
-- [ ] Implementar ordenamiento de MX.
-- [ ] Escribir test rojo para comando fuera de orden.
-- [ ] Implementar error de secuencia.
-- [ ] Documentar sesiones, sobre del mensaje, encabezados, MX y límites del correo electrónico.
-- [ ] Comparar SMTP contra HTTP APIs de envío de correo.
-- [ ] Crear diagrama de sesión.
-- [ ] Crear ejemplos progresivos y caso real de cola de correo saliente.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de validación de comandos.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add smtp chapter`.
+- [x] Diseñar API mínima: `SmtpCommand`, `SmtpReply`, `MailEnvelope`, `EmailHeaders`, `SmtpSession`, `SmtpError`.
+- [x] Escribir test rojo para conversación `HELO`, `MAIL FROM`, `RCPT TO`, `DATA`.
+- [x] Implementar máquina de sesión educativa.
+- [x] Escribir test rojo para separar sobre del mensaje y encabezados.
+- [x] Implementar `MailEnvelope` y `EmailHeaders`.
+- [x] Escribir test rojo para selección de MX por prioridad.
+- [x] Implementar ordenamiento de MX.
+- [x] Escribir test rojo para comando fuera de orden.
+- [x] Implementar error de secuencia.
+- [x] Documentar sesiones, sobre del mensaje, encabezados, MX y límites del correo electrónico.
+- [x] Comparar SMTP contra HTTP APIs de envío de correo.
+- [x] Crear diagrama de sesión.
+- [x] Crear ejemplos progresivos y caso real de cola de correo saliente.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de validación de comandos.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add smtp chapter`.
 
 ## Task 10: WebSocket
 

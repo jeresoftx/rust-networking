@@ -97,6 +97,18 @@ path = "examples/soluciones/https_certificate_failure.rs"
 name = "solution_https_hsts_policy"
 path = "examples/soluciones/https_hsts_policy.rs"
 
+[[example]]
+name = "solution_smtp_conversation"
+path = "examples/soluciones/smtp_conversation.rs"
+
+[[example]]
+name = "solution_smtp_envelope_headers"
+path = "examples/soluciones/smtp_envelope_headers.rs"
+
+[[example]]
+name = "solution_smtp_mx_selection"
+path = "examples/soluciones/smtp_mx_selection.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -123,4 +135,8 @@ harness = false
 
 [[bench]]
 name = "https_bench"
+harness = false
+
+[[bench]]
+name = "smtp_bench"
 harness = false
