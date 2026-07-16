@@ -1,0 +1,11 @@
+flowchart LR
+    Cliente["Cliente móvil"] --> CID["QuicConnectionId"]
+    CID --> Handshake["TLS 1.3 + h3"]
+    CID --> S0["Flujo 0"]
+    CID --> S4["Flujo 4"]
+    S0 --> P0["Paquete seq=1"]
+    S0 --> Perdida["Pérdida seq=2"]
+    S4 --> P4["Paquete seq=1"]
+    Perdida -. "solo bloquea flujo 0" .-> S0
+    CID --> Migracion["Migración Wi-Fi -> LTE"]
+    Migracion --> CID

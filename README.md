@@ -44,7 +44,7 @@ de reutilizarse en cursos posteriores.
 | 08 | SMTP | `src/smtp.rs` | benchmarked |
 | 09 | WebSocket | `src/websocket.rs` | benchmarked |
 | 10 | gRPC | `src/grpc.rs` | benchmarked |
-| 11 | QUIC | `src/quic.rs` | planned |
+| 11 | QUIC | `src/quic.rs` | benchmarked |
 
 Estados posibles: `planned`, `draft`, `implemented`, `tested`,
 `benchmarked`, `reviewed`, `published`.

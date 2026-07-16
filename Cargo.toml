@@ -133,6 +133,18 @@ path = "examples/soluciones/grpc_status_mapping.rs"
 name = "solution_grpc_streaming_model"
 path = "examples/soluciones/grpc_streaming_model.rs"
 
+[[example]]
+name = "solution_quic_streams"
+path = "examples/soluciones/quic_streams.rs"
+
+[[example]]
+name = "solution_quic_connection_migration"
+path = "examples/soluciones/quic_connection_migration.rs"
+
+[[example]]
+name = "solution_quic_handshake"
+path = "examples/soluciones/quic_handshake.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -171,4 +183,8 @@ harness = false
 
 [[bench]]
 name = "grpc_bench"
+harness = false
+
+[[bench]]
+name = "quic_bench"
 harness = false

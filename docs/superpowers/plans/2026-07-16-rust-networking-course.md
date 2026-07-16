@@ -458,14 +458,14 @@
 - [x] Implementar modelo educativo de negociación.
 - [x] Escribir test rojo para pérdida de paquete en un flujo sin detener otro.
 - [x] Implementar aislamiento de flujos.
-- [ ] Documentar transporte sobre UDP, flujos, negociación integrada, migración de conexión y HTTP/3.
-- [ ] Comparar contra TCP + TLS con foco en latencia y evolución.
-- [ ] Crear diagrama de conexión, paquetes y flujos.
-- [ ] Crear ejemplos progresivos y caso real de conexión móvil.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de despacho de paquetes por flujo.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add quic chapter`.
+- [x] Documentar transporte sobre UDP, flujos, negociación integrada, migración de conexión y HTTP/3.
+- [x] Comparar contra TCP + TLS con foco en latencia y evolución.
+- [x] Crear diagrama de conexión, paquetes y flujos.
+- [x] Crear ejemplos progresivos y caso real de conexión móvil.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de despacho de paquetes por flujo.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add quic chapter`.
 
 ## Task 13: Integración Entre Cursos
 
