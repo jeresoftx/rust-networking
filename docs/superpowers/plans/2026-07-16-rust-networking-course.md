@@ -108,24 +108,24 @@
 - Create: `examples/soluciones/layers_subnet_match.rs`
 - Create: `examples/soluciones/layers_route_selection.rs`
 
-- [ ] Diseñar API mínima: `NetworkLayer`, `EncapsulatedFrame`, `Ipv4Address`, `Ipv4Cidr`, `Route`, `RoutingTable`, `RouteDecision`.
-- [ ] Escribir test rojo para clasificar capas y encapsulación.
-- [ ] Implementar clasificación de capas y encapsulación mínima.
-- [ ] Escribir test rojo para pertenencia de IPv4 a CIDR.
-- [ ] Implementar `Ipv4Cidr::contains`.
-- [ ] Escribir test rojo para selección de ruta por prefijo más específico.
-- [ ] Implementar `RoutingTable::select_route`.
-- [ ] Escribir test rojo para TTL agotado.
-- [ ] Implementar decremento de TTL y error educativo.
-- [ ] Documentar capas, encapsulación, IP, subredes, TTL, rutas y entrega de mejor esfuerzo.
-- [ ] Comparar modelo OSI, TCP/IP y depuración pragmática.
-- [ ] Crear diagrama de encapsulación y selección de ruta.
-- [ ] Crear ejemplos básico, intermedio, avanzado y caso real.
-- [ ] Crear ejercicios sobre capas, CIDR, rutas y diagnóstico.
-- [ ] Crear soluciones ejecutables niveles 1 a 3.
-- [ ] Crear benchmark de selección de ruta con tablas pequeñas y medianas.
-- [ ] Actualizar estado a `benchmarked` en README y ROADMAP.
-- [ ] Verificar y hacer commit: `feat: add layers ip routing chapter`.
+- [x] Diseñar API mínima: `NetworkLayer`, `EncapsulatedFrame`, `Ipv4Address`, `Ipv4Cidr`, `Route`, `RoutingTable`, `RouteDecision`.
+- [x] Escribir test rojo para clasificar capas y encapsulación.
+- [x] Implementar clasificación de capas y encapsulación mínima.
+- [x] Escribir test rojo para pertenencia de IPv4 a CIDR.
+- [x] Implementar `Ipv4Cidr::contains`.
+- [x] Escribir test rojo para selección de ruta por prefijo más específico.
+- [x] Implementar `RoutingTable::select_route`.
+- [x] Escribir test rojo para TTL agotado.
+- [x] Implementar decremento de TTL y error educativo.
+- [x] Documentar capas, encapsulación, IP, subredes, TTL, rutas y entrega de mejor esfuerzo.
+- [x] Comparar modelo OSI, TCP/IP y depuración pragmática.
+- [x] Crear diagrama de encapsulación y selección de ruta.
+- [x] Crear ejemplos básico, intermedio, avanzado y caso real.
+- [x] Crear ejercicios sobre capas, CIDR, rutas y diagnóstico.
+- [x] Crear soluciones ejecutables niveles 1 a 3.
+- [x] Crear benchmark de selección de ruta con tablas pequeñas y medianas.
+- [x] Actualizar estado a `benchmarked` en README y ROADMAP.
+- [x] Verificar y hacer commit: `feat: add layers ip routing chapter`.
 
 ## Task 3: TCP
 

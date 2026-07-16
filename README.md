@@ -34,7 +34,7 @@ de reutilizarse en cursos posteriores.
 
 | # | Capítulo | Módulo | Estado |
 |---|----------|--------|--------|
-| 01 | Modelo de capas, IP y enrutamiento | `src/layers.rs` | planned |
+| 01 | Modelo de capas, IP y enrutamiento | `src/layers.rs` | benchmarked |
 | 02 | TCP | `src/tcp.rs` | planned |
 | 03 | UDP | `src/udp.rs` | planned |
 | 04 | DNS | `src/dns.rs` | planned |

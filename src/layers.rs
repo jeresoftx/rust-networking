@@ -56,8 +56,8 @@ pub enum TtlError {
 
 /// Representa datos encapsulados al atravesar capas.
 ///
-/// `EncapsulatedFrame` no serializa bytes reales. Conserva el payload original
-/// y una traza de capas para enseñar el orden de encapsulación.
+/// `EncapsulatedFrame` no serializa bytes reales. Conserva la carga útil
+/// original y una traza de capas para enseñar el orden de encapsulación.
 ///
 /// # Examples
 ///
@@ -86,7 +86,7 @@ struct LayerWrapper {
 impl EncapsulatedFrame {
     /// Crea un frame educativo con TTL inicial de 64.
     ///
-    /// Complejidad: O(n), donde `n` es el tamaño del payload.
+    /// Complejidad: O(n), donde `n` es el tamaño de la carga útil.
     pub fn new(payload: impl Into<String>) -> Self {
         Self {
             payload: payload.into(),
@@ -114,7 +114,7 @@ impl EncapsulatedFrame {
         self
     }
 
-    /// Devuelve el payload original.
+    /// Devuelve la carga útil original.
     ///
     /// Complejidad: O(1).
     pub fn payload(&self) -> &str {

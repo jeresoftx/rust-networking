@@ -12,3 +12,19 @@ name = "rust_networking"
 path = "src/lib.rs"
 
 [dependencies]
+
+[[example]]
+name = "solution_layers_classify_packet"
+path = "examples/soluciones/layers_classify_packet.rs"
+
+[[example]]
+name = "solution_layers_subnet_match"
+path = "examples/soluciones/layers_subnet_match.rs"
+
+[[example]]
+name = "solution_layers_route_selection"
+path = "examples/soluciones/layers_route_selection.rs"
+
+[[bench]]
+name = "layers_bench"
+harness = false

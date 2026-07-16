@@ -19,7 +19,7 @@ El checklist detallado vive en
 
 | # | Capítulo | Estado |
 |---|----------|--------|
-| 01 | Modelo de capas, IP y enrutamiento | planned |
+| 01 | Modelo de capas, IP y enrutamiento | benchmarked |
 | 02 | TCP | planned |
 | 03 | UDP | planned |
 | 04 | DNS | planned |

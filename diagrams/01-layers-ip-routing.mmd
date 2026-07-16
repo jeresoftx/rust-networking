@@ -1,0 +1,13 @@
+flowchart LR
+    APP["Aplicación: HTTP request"] --> TCP["Transporte: TCP segment"]
+    TCP --> IP["Internet: IPv4 packet"]
+    IP --> LINK["Enlace: Ethernet frame"]
+    LINK --> R1["Router: decrementa TTL"]
+    R1 --> D{"¿TTL llegó a cero?"}
+    D -- "sí" --> DROP["descartar paquete"]
+    D -- "no" --> RT["tabla de rutas"]
+    RT --> M{"¿varias rutas coinciden?"}
+    M -- "sí" --> LPM["elegir prefijo más específico"]
+    M -- "no" --> ONLY["usar ruta encontrada"]
+    LPM --> OUT["interfaz de salida"]
+    ONLY --> OUT
