@@ -66,6 +66,18 @@ fn receiver_buffers_out_of_order_segments_until_gap_is_filled() {
 }
 
 #[test]
+fn established_connection_sends_data_and_tracks_unacknowledged_segments() {
+    let mut sender = TcpConnection::established(SequenceNumber::new(20), SequenceNumber::new(80));
+
+    let first = sender.send_data(b"hello".to_vec()).unwrap();
+    let second = sender.send_data(b"world".to_vec()).unwrap();
+
+    assert_eq!(first.sequence_number(), SequenceNumber::new(20));
+    assert_eq!(second.sequence_number(), SequenceNumber::new(25));
+    assert_eq!(sender.unacked_segments(), &[first, second]);
+}
+
+#[test]
 fn unacknowledged_segment_can_be_retransmitted() {
     let mut client = TcpConnection::new_client(SequenceNumber::new(10));
     let syn = client.open().unwrap();

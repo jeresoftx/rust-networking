@@ -22,9 +22,9 @@ prueba y cómo se mide.
 ## Lugar En El Camino
 
 Este curso vive en el Semestre 2. Recibe ideas de estructuras de datos,
-algoritmos y Rust básico, y alimenta sistemas operativos, bases de datos
-internals, sistemas distribuidos, cloud, DevOps, API design, travel tech y
-mensajería.
+algoritmos y Rust básico, y alimenta sistemas operativos, componentes internos
+de bases de datos, sistemas distribuidos, nube, DevOps, diseño de APIs,
+tecnología de viajes y mensajería.
 
 Redes es canónico aquí: modelo de capas, IP, enrutamiento, TCP, UDP, DNS, TLS,
 HTTP, HTTPS, SMTP, WebSocket, gRPC y QUIC se explican en este repositorio antes
@@ -35,7 +35,7 @@ de reutilizarse en cursos posteriores.
 | # | Capítulo | Módulo | Estado |
 |---|----------|--------|--------|
 | 01 | Modelo de capas, IP y enrutamiento | `src/layers.rs` | benchmarked |
-| 02 | TCP | `src/tcp.rs` | planned |
+| 02 | TCP | `src/tcp.rs` | benchmarked |
 | 03 | UDP | `src/udp.rs` | planned |
 | 04 | DNS | `src/dns.rs` | planned |
 | 05 | TLS | `src/tls.rs` | planned |

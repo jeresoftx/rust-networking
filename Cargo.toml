@@ -25,6 +25,22 @@ path = "examples/soluciones/layers_subnet_match.rs"
 name = "solution_layers_route_selection"
 path = "examples/soluciones/layers_route_selection.rs"
 
+[[example]]
+name = "solution_tcp_handshake"
+path = "examples/soluciones/tcp_handshake.rs"
+
+[[example]]
+name = "solution_tcp_ordered_stream"
+path = "examples/soluciones/tcp_ordered_stream.rs"
+
+[[example]]
+name = "solution_tcp_retransmission"
+path = "examples/soluciones/tcp_retransmission.rs"
+
 [[bench]]
 name = "layers_bench"
+harness = false
+
+[[bench]]
+name = "tcp_bench"
 harness = false

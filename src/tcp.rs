@@ -156,7 +156,7 @@ impl TcpSegment {
 
     /// Crea un segmento de datos.
     ///
-    /// Complejidad: O(1) más la propiedad de `payload`.
+    /// Complejidad: O(1) más la propiedad del vector recibido.
     pub fn data(sequence_number: SequenceNumber, payload: Vec<u8>) -> Self {
         Self::new(sequence_number, None, false, false, false, payload)
     }
@@ -257,10 +257,10 @@ impl TcpSegment {
 /// ```
 /// use rust_networking::tcp::{SequenceNumber, TcpConnection, TcpState};
 ///
-/// let mut client = TcpConnection::new_client(SequenceNumber::new(1));
-/// let syn = client.open().unwrap();
+/// let mut cliente = TcpConnection::new_client(SequenceNumber::new(1));
+/// let syn = cliente.open().unwrap();
 /// assert!(syn.is_syn());
-/// assert_eq!(client.state(), TcpState::SynSent);
+/// assert_eq!(cliente.state(), TcpState::SynSent);
 /// ```
 #[derive(Debug, Clone)]
 pub struct TcpConnection {
@@ -364,12 +364,12 @@ impl TcpConnection {
     fn receive_when_closed(&mut self, segment: TcpSegment) -> Result<Option<TcpSegment>, TcpError> {
         if segment.is_syn() && !segment.is_ack() {
             self.receive_next = segment.sequence_number().advance(1);
-            let response = TcpSegment::syn_ack(self.send_next, self.receive_next);
+            let respuesta = TcpSegment::syn_ack(self.send_next, self.receive_next);
             self.send_next = self.send_next.advance(1);
             self.state = TcpState::SynReceived;
-            self.unacked.push(response.clone());
+            self.unacked.push(respuesta.clone());
             self.events.push(TcpEvent::SynReceived);
-            Ok(Some(response))
+            Ok(Some(respuesta))
         } else {
             Err(unexpected(self.state, &segment))
         }
@@ -382,10 +382,10 @@ impl TcpConnection {
         if segment.is_syn() && segment.is_ack() && segment.ack_number() == Some(self.send_next) {
             self.clear_acked(segment.ack_number().unwrap());
             self.receive_next = segment.sequence_number().advance(1);
-            let response = TcpSegment::ack(self.send_next, self.receive_next);
+            let respuesta = TcpSegment::ack(self.send_next, self.receive_next);
             self.state = TcpState::Established;
             self.events.push(TcpEvent::ConnectionEstablished);
-            Ok(Some(response))
+            Ok(Some(respuesta))
         } else {
             Err(unexpected(self.state, &segment))
         }
@@ -494,6 +494,20 @@ impl TcpConnection {
     /// Complejidad: O(1).
     pub fn unacked_segments(&self) -> &[TcpSegment] {
         &self.unacked
+    }
+
+    /// Envía datos desde una conexión establecida.
+    ///
+    /// Complejidad: O(1) más la propiedad del vector recibido.
+    pub fn send_data(&mut self, payload: Vec<u8>) -> Result<TcpSegment, TcpError> {
+        if self.state != TcpState::Established {
+            return Err(TcpError::NotEstablished { state: self.state });
+        }
+
+        let segment = TcpSegment::data(self.send_next, payload);
+        self.send_next = segment.end_sequence_number();
+        self.unacked.push(segment.clone());
+        Ok(segment)
     }
 
     /// Devuelve una copia de los segmentos que deben retransmitirse.

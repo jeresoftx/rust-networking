@@ -143,25 +143,25 @@
 - Create: `examples/soluciones/tcp_ordered_stream.rs`
 - Create: `examples/soluciones/tcp_retransmission.rs`
 
-- [ ] Diseñar API mínima: `TcpState`, `TcpSegment`, `SequenceNumber`, `TcpConnection`, `TcpEvent`, `TcpError`.
-- [ ] Escribir test rojo para establecimiento en tres pasos.
-- [ ] Implementar transiciones `Closed -> SynSent -> Established`.
-- [ ] Escribir test rojo para rechazo de segmento inesperado.
-- [ ] Implementar errores de transición.
-- [ ] Escribir test rojo para ordenar segmentos por número de secuencia.
-- [ ] Implementar buffer educativo de reordenamiento.
-- [ ] Escribir test rojo para retransmisión por acuse faltante.
-- [ ] Implementar modelo mínimo de retransmisión.
-- [ ] Escribir test rojo para cierre con `FIN`.
-- [ ] Implementar cierre ordenado.
-- [ ] Documentar conexión, confiabilidad, orden, ventanas, retransmisión y cierre.
-- [ ] Comparar TCP contra UDP y QUIC.
-- [ ] Crear diagrama de estados.
-- [ ] Crear ejemplos progresivos y caso real de solicitud sobre flujo confiable.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de reordenamiento de segmentos.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add tcp chapter`.
+- [x] Diseñar API mínima: `TcpState`, `TcpSegment`, `SequenceNumber`, `TcpConnection`, `TcpEvent`, `TcpError`.
+- [x] Escribir test rojo para establecimiento en tres pasos.
+- [x] Implementar transiciones `Closed -> SynSent -> Established`.
+- [x] Escribir test rojo para rechazo de segmento inesperado.
+- [x] Implementar errores de transición.
+- [x] Escribir test rojo para ordenar segmentos por número de secuencia.
+- [x] Implementar buffer educativo de reordenamiento.
+- [x] Escribir test rojo para retransmisión por acuse faltante.
+- [x] Implementar modelo mínimo de retransmisión.
+- [x] Escribir test rojo para cierre con `FIN`.
+- [x] Implementar cierre ordenado.
+- [x] Documentar conexión, confiabilidad, orden, ventanas, retransmisión y cierre.
+- [x] Comparar TCP contra UDP y QUIC.
+- [x] Crear diagrama de estados.
+- [x] Crear ejemplos progresivos y caso real de solicitud sobre flujo confiable.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de reordenamiento de segmentos.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add tcp chapter`.
 
 ## Task 4: UDP
 

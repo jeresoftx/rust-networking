@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> SynSent: cliente envía SYN
+    Closed --> SynReceived: servidor recibe SYN\ny envía SYN+ACK
+    SynSent --> Established: recibe SYN+ACK\ny envía ACK
+    SynReceived --> Established: recibe ACK
+    Established --> Established: recibe datos en orden\nentrega a aplicación
+    Established --> Established: recibe datos fuera de orden\nguarda hasta llenar hueco
+    Established --> Established: acuse faltante\nretransmite pendiente
+    Established --> FinWait1: envía FIN
+    FinWait1 --> Closed: recibe ACK del FIN
+    Established --> Closed: recibe FIN\ny responde ACK
