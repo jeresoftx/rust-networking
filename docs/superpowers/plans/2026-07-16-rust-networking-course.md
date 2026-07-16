@@ -449,15 +449,15 @@
 - Create: `examples/soluciones/quic_connection_migration.rs`
 - Create: `examples/soluciones/quic_handshake.rs`
 
-- [ ] Diseñar API mínima: `QuicConnectionId`, `QuicStreamId`, `QuicPacket`, `QuicStream`, `ConnectionMigration`, `QuicError`.
-- [ ] Escribir test rojo para múltiples flujos independientes.
-- [ ] Implementar modelo de flujos sin bloqueo entre ellos.
-- [ ] Escribir test rojo para migración de conexión por cambio de dirección.
-- [ ] Implementar `ConnectionMigration`.
-- [ ] Escribir test rojo para negociación integrada con seguridad.
-- [ ] Implementar modelo educativo de negociación.
-- [ ] Escribir test rojo para pérdida de paquete en un flujo sin detener otro.
-- [ ] Implementar aislamiento de flujos.
+- [x] Diseñar API mínima: `QuicConnectionId`, `QuicStreamId`, `QuicPacket`, `QuicStream`, `ConnectionMigration`, `QuicError`.
+- [x] Escribir test rojo para múltiples flujos independientes.
+- [x] Implementar modelo de flujos sin bloqueo entre ellos.
+- [x] Escribir test rojo para migración de conexión por cambio de dirección.
+- [x] Implementar `ConnectionMigration`.
+- [x] Escribir test rojo para negociación integrada con seguridad.
+- [x] Implementar modelo educativo de negociación.
+- [x] Escribir test rojo para pérdida de paquete en un flujo sin detener otro.
+- [x] Implementar aislamiento de flujos.
 - [ ] Documentar transporte sobre UDP, flujos, negociación integrada, migración de conexión y HTTP/3.
 - [ ] Comparar contra TCP + TLS con foco en latencia y evolución.
 - [ ] Crear diagrama de conexión, paquetes y flujos.
