@@ -415,23 +415,23 @@
 - Create: `examples/soluciones/grpc_status_mapping.rs`
 - Create: `examples/soluciones/grpc_streaming_model.rs`
 
-- [ ] Diseñar API mínima: `GrpcMethod`, `GrpcService`, `GrpcMessage`, `GrpcStatus`, `StreamMode`, `GrpcError`.
-- [ ] Escribir test rojo para contrato de servicio y método.
-- [ ] Implementar registro educativo de métodos.
-- [ ] Escribir test rojo para mapeo de códigos de estado.
-- [ ] Implementar `GrpcStatus`.
-- [ ] Escribir test rojo para modo unario, flujo del servidor, flujo del cliente y bidireccional.
-- [ ] Implementar `StreamMode`.
-- [ ] Escribir test rojo para compatibilidad de versión de contrato.
-- [ ] Implementar verificación simple de versión.
-- [ ] Documentar contratos, HTTP/2, flujos, códigos de estado y compatibilidad.
-- [ ] Comparar contra REST sin convertirlo en guerra de estilos.
-- [ ] Crear diagrama de llamada y stream.
-- [ ] Crear ejemplos progresivos y caso real de servicio interno.
-- [ ] Crear ejercicios y soluciones.
-- [ ] Crear benchmark de validación de contratos.
-- [ ] Actualizar estado y checklist.
-- [ ] Verificar y hacer commit: `feat: add grpc chapter`.
+- [x] Diseñar API mínima: `GrpcMethod`, `GrpcService`, `GrpcMessage`, `GrpcStatus`, `StreamMode`, `GrpcError`.
+- [x] Escribir test rojo para contrato de servicio y método.
+- [x] Implementar registro educativo de métodos.
+- [x] Escribir test rojo para mapeo de códigos de estado.
+- [x] Implementar `GrpcStatus`.
+- [x] Escribir test rojo para modo unario, flujo del servidor, flujo del cliente y bidireccional.
+- [x] Implementar `StreamMode`.
+- [x] Escribir test rojo para compatibilidad de versión de contrato.
+- [x] Implementar verificación simple de versión.
+- [x] Documentar contratos, HTTP/2, flujos, códigos de estado y compatibilidad.
+- [x] Comparar contra REST sin convertirlo en guerra de estilos.
+- [x] Crear diagrama de llamada y stream.
+- [x] Crear ejemplos progresivos y caso real de servicio interno.
+- [x] Crear ejercicios y soluciones.
+- [x] Crear benchmark de validación de contratos.
+- [x] Actualizar estado y checklist.
+- [x] Verificar y hacer commit: `feat: add grpc chapter`.
 
 ## Task 12: QUIC
 

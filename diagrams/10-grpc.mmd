@@ -1,0 +1,9 @@
+flowchart LR
+    Cliente["Cliente gRPC"] --> Servicio["Servicio"]
+    Servicio --> Metodo["Método + versión"]
+    Metodo --> Compat{"¿Compatible?"}
+    Compat -- "no" --> Error["Estado gRPC"]
+    Compat -- "sí" --> Modo["Modo de flujo"]
+    Modo --> Mensaje["Mensaje serializado"]
+    Mensaje --> Transporte["HTTP/2"]
+    Transporte --> Estado["OK / error"]

@@ -121,6 +121,18 @@ path = "examples/soluciones/websocket_frames.rs"
 name = "solution_websocket_ping_pong"
 path = "examples/soluciones/websocket_ping_pong.rs"
 
+[[example]]
+name = "solution_grpc_method_contract"
+path = "examples/soluciones/grpc_method_contract.rs"
+
+[[example]]
+name = "solution_grpc_status_mapping"
+path = "examples/soluciones/grpc_status_mapping.rs"
+
+[[example]]
+name = "solution_grpc_streaming_model"
+path = "examples/soluciones/grpc_streaming_model.rs"
+
 [[bench]]
 name = "layers_bench"
 harness = false
@@ -155,4 +167,8 @@ harness = false
 
 [[bench]]
 name = "websocket_bench"
+harness = false
+
+[[bench]]
+name = "grpc_bench"
 harness = false

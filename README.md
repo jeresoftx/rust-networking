@@ -43,7 +43,7 @@ de reutilizarse en cursos posteriores.
 | 07 | HTTPS | `src/https.rs` | benchmarked |
 | 08 | SMTP | `src/smtp.rs` | benchmarked |
 | 09 | WebSocket | `src/websocket.rs` | benchmarked |
-| 10 | gRPC | `src/grpc.rs` | planned |
+| 10 | gRPC | `src/grpc.rs` | benchmarked |
 | 11 | QUIC | `src/quic.rs` | planned |
 
 Estados posibles: `planned`, `draft`, `implemented`, `tested`,

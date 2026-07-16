@@ -8,10 +8,10 @@ orienta el avance, pero no convierte el curso en una carrera por terminar.
 
 ## Estado Actual
 
-El repositorio ya tiene la fundación del curso y los nueve primeros capítulos
+El repositorio ya tiene la fundación del curso y los diez primeros capítulos
 desarrollados: modelo de capas/IP/enrutamiento, TCP, UDP, DNS, TLS, HTTP,
-HTTPS, SMTP y WebSocket. La siguiente línea natural es continuar con gRPC sin
-perder la anatomía completa de RFC-0001 §14.
+HTTPS, SMTP, WebSocket y gRPC. La siguiente línea natural es continuar con QUIC
+sin perder la anatomía completa de RFC-0001 §14.
 
 El checklist detallado vive en
 [`docs/superpowers/plans/2026-07-16-rust-networking-course.md`](docs/superpowers/plans/2026-07-16-rust-networking-course.md).
@@ -29,7 +29,7 @@ El checklist detallado vive en
 | 07 | HTTPS | benchmarked |
 | 08 | SMTP | benchmarked |
 | 09 | WebSocket | benchmarked |
-| 10 | gRPC | planned |
+| 10 | gRPC | benchmarked |
 | 11 | QUIC | planned |
 
 ## Alineación RFC-0001
